@@ -1,0 +1,4 @@
+C:\Users\sethh\source\repos\reactproject1\reactproject1\obj\Debug\reactproject1.esproj.SuggestedBindingRedirects.cache
+C:\Users\sethh\source\repos\reactproject1\reactproject1\obj\Debug\reactproject1.esproj.CoreCompileInputs.cache
+C:\Users\sethh\Downloads\react_ass_1\waa-aug-2023-react-1\obj\Debug\reactproject1.esproj.SuggestedBindingRedirects.cache
+C:\Users\sethh\Downloads\react_ass_1\waa-aug-2023-react-1\obj\Debug\reactproject1.esproj.CoreCompileInputs.cache
