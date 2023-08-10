@@ -9,10 +9,10 @@ const styles = {
 const UserTable = ({ data, handleEdit, handleDelete }) => {
     return (
         <div style={styles.table}>
-            <h2>Users List</h2>
             <table>
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Edit</th>
@@ -22,6 +22,7 @@ const UserTable = ({ data, handleEdit, handleDelete }) => {
                 <tbody>
                 {data.map(user => (
                     <tr key={user.id}>
+                        <td>{user.id}</td>
                         <td>{user.firstName}</td>
                         <td>{user.lastName}</td>
                         <td>
