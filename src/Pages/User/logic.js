@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {create, readAll, remove, update} from "../../Api/api";
 
+const RESOURCE = 'users';
+
 export function useUserLogic () {
     const [data, setData] = useState([]);
     const [currentId, setCurrentId] = useState(null);
@@ -14,7 +16,7 @@ export function useUserLogic () {
 
     const fetchUsers = async () => {
         try {
-            const response = await readAll('users');
+            const response = await readAll(RESOURCE);
             setData(response.data);
             setLoading(false);
         } catch (error) {
@@ -28,9 +30,9 @@ export function useUserLogic () {
         try {
             let response;
             if (editing) {
-                response = await update('users', currentId, userData);
+                response = await update(RESOURCE, currentId, userData);
             } else {
-                response = await create('users', userData);
+                response = await create(RESOURCE, userData);
             }
             setData(response.data);
             setLoading(true);
@@ -63,7 +65,7 @@ export function useUserLogic () {
 
     const handleDelete = async (id) => {
         try {
-            const response = await remove('users', id);
+            const response = await remove(RESOURCE, id);
             setData(response.data);
             setLoading(true);
             fetchUsers();

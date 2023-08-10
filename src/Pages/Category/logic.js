@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { create, readAll, remove, update } from "../../Api/api";
 
+const RESOURCE = 'categories';
 export function useCategoryLogic() {
   const [data, setData] = useState([]);
   const [currentId, setCurrentId] = useState(null);
@@ -11,7 +12,7 @@ export function useCategoryLogic() {
 
   const fetchCategories = async () => {
     try {
-      const response = await readAll("categories");
+      const response = await readAll(RESOURCE);
       setData(response.data);
       setLoading(false);
     } catch (error) {
@@ -25,9 +26,9 @@ export function useCategoryLogic() {
     try {
       let response;
       if (editing) {
-        response = await update("categories", currentId, CategoryData);
+        response = await update(RESOURCE, currentId, CategoryData);
       } else {
-        response = await create("categories", CategoryData);
+        response = await create(RESOURCE, CategoryData);
       }
       setData(response.data);
       setLoading(true);
@@ -53,7 +54,7 @@ export function useCategoryLogic() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await remove("categories", id);
+      const response = await remove(RESOURCE, id);
       setData(response.data);
       setLoading(true);
       fetchCategories();
