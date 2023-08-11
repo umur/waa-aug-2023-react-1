@@ -1,12 +1,15 @@
-import { useState } from "react"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 const ReviewComponent = () => {
-    let [reviews, setReviews] = useState([
-        { id: 1, comment: 'comment 1' },
-        { id: 2, comment: 'comment 2' },
-        { id: 3, comment: 'comment 3' },
-        { id: 4, comment: 'comment 4' }
-    ])
+    let [reviews, setReviews] = useState([])
+
+    useEffect(()=>{
+        axios.get('http://localhost:8080/reviews')
+        .then(res=>{
+            setReviews(res.data)
+        })
+    }, [])
 
     return (
         <>
@@ -22,7 +25,7 @@ const ReviewComponent = () => {
                     {
                         reviews.map(review => {
                             return (
-                                <tr>
+                                <tr key={review.id}>
                                     <td>{review.id}</td>
                                     <td>{review.comment}</td>
                                 </tr>
